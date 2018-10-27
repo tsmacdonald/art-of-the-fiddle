@@ -1,0 +1,9 @@
+tr
+  td = artwork.title
+  td = format_date_range(artwork.earliest_year, artwork.latest_year)
+  td = artwork.notes
+  td.row
+    .col-md-6
+      = link_to "Edit", edit_artwork_path(artwork), class: 'form-control btn btn-outline-info'
+    .col-md-6
+      = link_to "Delete", artwork_path(artwork), method: :delete, class: 'form-control btn btn-danger'

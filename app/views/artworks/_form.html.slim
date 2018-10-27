@@ -1,0 +1,19 @@
+= form_for(@artwork) do |f|
+  .form-group.form-row
+    .col-md-12
+      = f.label :title
+      = f.text_field :title, class: 'form-control', required: true, autocomplete: :off
+  .form-group.form-row
+    .col-md-2
+      = f.label :earliest_year
+      = f.number_field :earliest_year, class: 'form-control', required: true, maxlength: 4
+    .col-md-2
+      = f.label :latest_year
+      = f.number_field :latest_year, class: 'form-control', input_html: { maxlength: 4 }
+  .form-group.form-row
+    .col-md-12
+      = f.label :notes
+      = f.text_area :notes, class: 'form-control', autocomplete: :off, rows: 10
+  .form-group.form-row
+    .col-md-2
+      = f.submit 'Submit', class: 'form-control btn btn-primary'

@@ -23,16 +23,17 @@ html
         ul.navbar-nav.ml-auto
           li.nav-item
             = link_to "Images", artworks_path, class: "nav-link"
+          li.nav-item
+            = link_to "New Image", new_artwork_path, class: "nav-link"
     .page-wrapper
       header
         = yield(:header)
       main.container
         .row
           .col-lg-12
-            - if notice.present?
-              p.alert.alert-info(role="alert")
-                = notice
-            - if alert.present?
-              p.alert.alert-danger(role="alert")
-                = alert
+            - if flash[:success].present?
+              p.alert.alert-success
+                = flash[:success]
+            - if flash[:error].present?
+              = flash[:error]
             = yield
