@@ -6,3 +6,16 @@
     text-align: center;
   }
 }
+
+.thumbnail {
+  img {
+    max-width: 200px
+  }
+}
+
+.image-preview {
+  img {
+    max-width: 400px;
+    width: 100%;
+  }
+}

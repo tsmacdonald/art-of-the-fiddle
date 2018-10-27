@@ -42,6 +42,6 @@ class ArtworksController < ApplicationController
   private
 
   def artwork_params
-    params[:artwork].permit(:title, :notes, :earliest_year, :latest_year)
+    params[:artwork].permit(:title, :notes, :earliest_year, :latest_year, :file)
   end
 end
