@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title
+      | The Art of the Fiddle
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag    'application'
+    = stylesheet_pack_tag    'bootstrap'
+
+  body
+    nav.navbar.navbar-expand-md.navbar-light.bg-light
+      = link_to root_path, class: "navbar-brand" do
+        = image_tag "http://www.placekitten.com/64/64"
+      .navbar-brand.abs
+        = yield(:title)
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarSupportedContent
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            = link_to "Images", artworks_path, class: "nav-link"
+    .page-wrapper
+      header
+        = yield(:header)
+      main.container
+        .row
+          .col-lg-12
+            - if notice.present?
+              p.alert.alert-info(role="alert")
+                = notice
+            - if alert.present?
+              p.alert.alert-danger(role="alert")
+                = alert
+            = yield
