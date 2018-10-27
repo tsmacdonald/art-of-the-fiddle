@@ -6,10 +6,10 @@
           = f.label :title
           = f.text_field :title, class: 'form-control', required: true, autocomplete: :off
       .form-group.form-row
-        .col-md-2
+        .col-md-4
           = f.label :earliest_year
           = f.number_field :earliest_year, class: 'form-control', required: true, maxlength: 4
-        .col-md-2
+        .col-md-4
           = f.label :latest_year
           = f.number_field :latest_year, class: 'form-control', input_html: { maxlength: 4 }
       .form-group.form-row
