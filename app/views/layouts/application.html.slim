@@ -13,18 +13,18 @@ html
 
   body
     nav.navbar.navbar-expand-md.navbar-light.bg-light
-      = link_to root_path, class: "navbar-brand" do
+      = link_to root_path, class: "navbar-brand raise-hack" do
         = image_tag "http://www.placekitten.com/32/32"
-      .navbar-brand.abs
-        = yield(:title)
-      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+      button.navbar-toggler.raise-hack(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       .collapse.navbar-collapse#navbarSupportedContent
-        ul.navbar-nav.ml-auto
+        ul.navbar-nav.ml-auto.raise-hack
           li.nav-item
             = link_to "Images", artworks_path, class: "nav-link"
           li.nav-item
             = link_to "New Image", new_artwork_path, class: "nav-link"
+      .navbar-brand.abs
+        = yield(:title)
     .page-wrapper
       header
         = yield(:header)
