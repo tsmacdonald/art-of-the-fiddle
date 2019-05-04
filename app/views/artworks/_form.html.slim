@@ -17,12 +17,15 @@
           = f.label :notes
           = f.text_area :notes, class: 'form-control', autocomplete: :off, rows: 10
       .form-group.form-row
-        .col-md-2
-          = f.submit 'Submit', class: 'form-control btn btn-primary'
+        .col-md-12
+          = f.select(:tags, options_from_collection_for_select(@tags, :name, :name, f.object.tags.pluck(:name)), {}, multiple: true)
       .form-group.form-row
-        .col-md-2
-          = f.file_field :file
+        .col-md-12
+          = f.submit 'Submit', class: 'form-control btn btn-primary'
     .col-md-6
       - if @artwork.file.attached?
         figure.image-preview.center-block
           = image_tag(url_for(@artwork.file))
+      .form-group.form-row
+        .col-md-2
+          = f.file_field :file

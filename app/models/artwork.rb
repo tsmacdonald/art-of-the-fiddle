@@ -22,4 +22,14 @@ class Artwork < ApplicationRecord
       Tag.where(name: n.strip).first_or_create!
     end
   end
+
+  def update_tags(tags)
+    tag_names = tags.select(&:present?)
+    taggings.each do |tagging|
+      tagging.destroy unless tag_names.include?(tagging.tag.name)
+    end
+    tag_names.each do |tag_name|
+      Tagging.find_or_create_by(tag: Tag.find_or_create_by(name: tag_name), artwork_id: id)
+    end
+  end
 end
