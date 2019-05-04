@@ -11,8 +11,3 @@
       | (No attachment yet)
   .col-md-6
     h2 = "#{@artwork.title} (#{format_date_range(@artwork.earliest_year, @artwork.latest_year)})"
-    - if @artwork.relationships.present?
-      table.table
-        tbody
-          = render @artwork.relationships
-
