@@ -1,0 +1,18 @@
+= content_for(:title)
+  = @artwork.title
+.row
+  .col-md-6
+    - if @artwork.file.attached?
+      figure.thumbnail
+        - url = url_for(@artwork.file)
+        = link_to url do
+          = image_tag(url)
+    - else
+      | (No attachment yet)
+  .col-md-6
+    h2 = "#{@artwork.title} (#{format_date_range(@artwork.earliest_year, @artwork.latest_year)})"
+    - if @artwork.relationships.present?
+      table.table
+        tbody
+          = render @artwork.relationships
+

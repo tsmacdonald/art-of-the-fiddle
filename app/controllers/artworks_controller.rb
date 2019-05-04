@@ -3,6 +3,10 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.all
   end
 
+  def show
+    @artwork = Artwork.find(params[:id])
+  end
+
   def new
     @artwork = Artwork.new
   end

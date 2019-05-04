@@ -3,7 +3,7 @@ tr
     - if artwork.file.attached?
       figure.thumbnail
         = image_tag(url_for(artwork.file))
-  td = artwork.title
+  td = link_to(artwork.title, artwork)
   td = format_date_range(artwork.earliest_year, artwork.latest_year)
   td.freeform-text = artwork.notes
   td
