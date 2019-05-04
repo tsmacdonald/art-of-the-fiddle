@@ -130,6 +130,11 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    octicons (8.2.0)
+      nokogiri (>= 1.6.3.1)
+    octicons_helper (8.2.0)
+      octicons (= 8.2.0)
+      rails
     parallel (1.12.1)
     parser (2.5.3.0)
       ast (~> 2.4.0)
@@ -279,6 +284,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  octicons_helper
   pg
   pry-byebug
   puma (~> 3.11)
@@ -301,4 +307,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.3
+   1.17.1
