@@ -1,4 +1,6 @@
 class ArtworksController < ApplicationController
+  before_action :load_tags, only: [:new, :edit]
+
   def index
     @artwork = Artwork.all
   end
@@ -26,7 +28,7 @@ class ArtworksController < ApplicationController
 
   def update
     artwork = Artwork.find(params[:id])
-    if artwork.update(artwork_params)
+    if artwork.update(artwork_params) && artwork.update_tags(params[:artwork][:tags])
       flash[:success] = "Saved changes to '#{artwork.title}'!"
       redirect_to artworks_path
     else
@@ -47,5 +49,9 @@ class ArtworksController < ApplicationController
 
   def artwork_params
     params[:artwork].permit(:title, :notes, :earliest_year, :latest_year, :file)
+  end
+
+  def load_tags
+    @tags = Tag.all
   end
 end
