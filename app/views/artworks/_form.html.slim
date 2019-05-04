@@ -17,7 +17,21 @@
           = f.label :notes
           = f.text_area :notes, class: 'form-control', autocomplete: :off, rows: 10
       .form-group.form-row
-        .col-md-2
+        .col-md-4 Relationship type
+        .col-md-7 Name
+        .col-md-1
+          .btn.btn-outline-primary#add-relationship
+            = octicon "plus", class: "pull-right"
+      .relationship
+      .form-group.form-row.relationship
+        .col-md-4
+          = text_field_tag "relationship_type[]", nil, class: 'form-control'
+        .col-md-7
+          = text_field_tag "participant_name[]", nil, class: 'form-control'
+        .col-md-1
+          span.btn.btn-outline-danger.delete-relationship ×
+      .form-group.form-row
+        .col-md-3
           = f.submit 'Submit', class: 'form-control btn btn-primary'
       .form-group.form-row
         .col-md-2
