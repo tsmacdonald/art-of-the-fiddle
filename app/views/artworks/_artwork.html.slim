@@ -5,6 +5,7 @@ tr
         = image_tag(url_for(artwork.file))
   td = link_to(artwork.title, artwork)
   td = format_date_range(artwork.earliest_year, artwork.latest_year)
+  td = artwork.tag_list
   td.freeform-text = artwork.notes
   td
     = link_to "Edit", edit_artwork_path(artwork), class: 'form-control btn btn-outline-info'

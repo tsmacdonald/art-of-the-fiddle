@@ -18,6 +18,7 @@
           = f.text_area :notes, class: 'form-control', autocomplete: :off, rows: 10
       .form-group.form-row
         .col-md-12
+          = f.label :tags
           = f.select(:tags, options_from_collection_for_select(@tags, :name, :name, f.object.tags.pluck(:name)), {}, multiple: true)
       .form-group.form-row
         .col-md-12
