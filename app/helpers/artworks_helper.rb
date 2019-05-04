@@ -1,7 +1,7 @@
 module ArtworksHelper
   def format_date_range(min, max)
     if min == max || min.nil? || max.nil?
-      min || max || ""
+      min || max || ''
     else
       "#{min}-#{max}"
     end
